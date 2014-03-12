@@ -46,10 +46,15 @@ class Sedo_DetectBrowser_Helper_Tools
 
 	public static function isBadIE($method = false, $range = false)
 	{
-		$useragent = $_SERVER['HTTP_USER_AGENT'];
+		if(!isset($_SERVER['HTTP_USER_AGENT']))
+		{
+			return false;
+		}
+		
+		$useragent = strtolower($_SERVER['HTTP_USER_AGENT']);
 		$output = false;
 
-		if(preg_match('/(?i)msie/', $useragent))
+		if(preg_match('/msie/', $useragent))
        		{
 			if($method == 'all')
 			{
@@ -57,29 +62,28 @@ class Sedo_DetectBrowser_Helper_Tools
 	       		}
 	       		elseif($method == 'target')
 	       		{
-	       			preg_match('#^(\d+?)-(\d+?)$#', $range, $match);
-	       			$first = $match[1];
-	       			$last = $match[2];
+	       			$first = $range[0];
+	       			$last = substr($range, -1);
 	       			$first_fix = $first - 4;
 	       			$last_fix = $last - 4;
 	       			
 	       			if($first > 7 AND $last > 7)
 	       			{
-		       			if(preg_match('/(?i)Trident\/[' . $first_fix  . '-' . $last_fix  . ']/', $useragent))
+		       			if(preg_match('/trident\/[' . $first_fix  . '-' . $last_fix  . ']/', $useragent))
        					{
       						$output = true;
 	       				}	       			
 	       			}
 	       			elseif($first < 8 AND $last > 7)
 	       			{
-		       			if(preg_match('/(?i)Trident\/[4-' . $last_fix  . ']/', $useragent) OR preg_match('/(?i)msie [' . $first . '-7]/', $useragent))
+		       			if(preg_match('/trident\/[4-' . $last_fix  . ']/', $useragent) OR preg_match('/(?i)msie [' . $first . '-7]/', $useragent))
        					{
       						$output = true;
 	       				}	       			
 	       			}
 	       			elseif($last < 8)
 	       			{
-		       			if(preg_match('/(?i)msie [' . $first . '-' . $last . ']/', $useragent))
+		       			if(preg_match('/msie [' . $first . '-' . $last . ']/', $useragent))
        					{
       						$output = true;
 	       				}	       			
@@ -87,10 +91,21 @@ class Sedo_DetectBrowser_Helper_Tools
 	       		}
 	       		else
 	       		{
-	       			if(preg_match('/(?i)Trident\/4/', $useragent) OR preg_match('/(?i)msie [1-7]/', $useragent))
+	       			if(preg_match('/trident\/4/', $useragent) OR preg_match('/msie [1-7]/', $useragent))
        				{
        					//IE1 to IE8 width default option
       					$output = true;
+	       			}
+	       		}
+       		}
+       		elseif(strpos($useragent, 'like gecko') !== false && preg_match('#trident/(\d{1,2})\.(\d{1,2})#', $useragent, $match))
+       		{
+	       		//IE11
+	       		if(intval($match[1]) == 7)
+	       		{
+	       			if($method == 'all' || ($method == 'target' && strpos($range, '11') !== false) )
+				{
+	       				$output = true;
 	       			}
 	       		}
        		}

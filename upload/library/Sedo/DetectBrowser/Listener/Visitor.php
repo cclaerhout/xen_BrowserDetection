@@ -8,91 +8,150 @@ class Sedo_DetectBrowser_Listener_Visitor
 		if(!isset($visitor['getBrowser']))
 		{
 			//Ini values to avoid 'Undefined index' errors
-			$wip['isIE'] = false;
-			$wip['IEis'] = false;
-			$wip['isMobile'] = false;
-			$wip['isTablet'] = false;
-
-				//Phones			
-				$wip['mobile']['phones']['isiPhone'] = false;
-				$wip['mobile']['phones']['isBlackBerry'] = false;
-				$wip['mobile']['phones']['isHTC'] = false;
-				$wip['mobile']['phones']['isNexus'] = false;
-				$wip['mobile']['phones']['isDellStreak'] = false;
-				$wip['mobile']['phones']['isMotorola'] = false;
-				$wip['mobile']['phones']['isSamsung'] = false;
-				$wip['mobile']['phones']['isSony'] = false;
-				$wip['mobile']['phones']['isAsus'] = false;
-				$wip['mobile']['phones']['isPalm'] = false;
-				$wip['mobile']['phones']['isGenericPhone'] = false;
-
-    					//Version 2.5.5
-    					$wip['mobile']['tablets']['isFly'] = false;				
-	
-				//Tablets
-				$wip['mobile']['tablets']['isBlackBerryTablet'] =  false;
-				$wip['mobile']['tablets']['isiPad'] =  false;
-				$wip['mobile']['tablets']['isKindle'] =  false;
-				$wip['mobile']['tablets']['isSamsungTablet'] =  false;
-				$wip['mobile']['tablets']['isHTCtablet'] =  false;
-				$wip['mobile']['tablets']['isMotorolaTablet'] =  false;
-				$wip['mobile']['tablets']['isAsusTablet'] =  false;
-				$wip['mobile']['tablets']['isNookTablet'] =  false;
-				$wip['mobile']['tablets']['isAcerTablet'] =  false;
-				$wip['mobile']['tablets']['isYarvikTablet'] =  false;
-				
-    					//Version 2.5.3
-    					$wip['mobile']['tablets']['isToshibaTablet'] = false;
-    					$wip['mobile']['tablets']['isCubeTablet'] = false;
-    					$wip['mobile']['tablets']['isCobyTablet'] = false;
-    					$wip['mobile']['tablets']['isSMiTTablet'] = false;
-    					$wip['mobile']['tablets']['isRockChipTablet'] = false;
-    					$wip['mobile']['tablets']['isTelstraTablet'] = false;
-    					//Version 2.5.5
-    					$wip['mobile']['tablets']['isPlaystationTablet'] = false;
-    					$wip['mobile']['tablets']['isNabiTablet'] = false;
-    					$wip['mobile']['tablets']['isNecTablet'] = false;
-    					$wip['mobile']['tablets']['isHuaweiTablet'] = false;
-    					$wip['mobile']['tablets']['isbqTablet'] = false;
-    					$wip['mobile']['tablets']['isFlyTablet'] = false;
-    					$wip['mobile']['tablets']['isLGTablet'] = false;
-
-				$wip['mobile']['tablets']['isGenericTablet'] =  false;	
-										
-	 
-				//Os
-				$wip['mobile']['os']['isAndroidOS'] = false;
-				$wip['mobile']['os']['isBlackBerryOS'] = false;
-				$wip['mobile']['os']['isPalmOS'] = false;
-				$wip['mobile']['os']['isSymbianOS'] = false;
-				$wip['mobile']['os']['isWindowsMobileOS'] = false;
-				$wip['mobile']['os']['isiOS'] = false;
-				$wip['mobile']['os']['isJavaOS'] = false;
-				$wip['mobile']['os']['isNokiaOS'] = false;
-				$wip['mobile']['os']['iswebOS'] = false;
-				$wip['mobile']['os']['isbadaOS'] = false;
-				$wip['mobile']['os']['isBREWOS'] = false;
-							
-				//Browsers
-				//Doesn't work well because broswers let users select which useragent they want to use; ie: Dolfin (Dolphin)
-				$wip['mobile']['browser']['isChrome'] = false;
-				$wip['mobile']['browser']['isDolfin'] = false;
-				$wip['mobile']['browser']['isOpera'] = false;
-				$wip['mobile']['browser']['isSkyfire'] = false;
-				$wip['mobile']['browser']['isIE'] = false;
-				$wip['mobile']['browser']['isFirefox'] = false;
-				$wip['mobile']['browser']['isBolt'] = false;
-				$wip['mobile']['browser']['isTeaShark'] = false;
-				$wip['mobile']['browser']['isBlazer'] = false;
-				$wip['mobile']['browser']['isSafari'] = false;
-				$wip['mobile']['browser']['isMidori'] = false;
-
-    					//Version 2.5.3
-      					$wip['mobile']['browser']['isDiigoBrowser'] =  false;
-      					$wip['mobile']['browser']['isPuffin'] =  false;
-
-				$wip['mobile']['browser']['isGenericBrowser'] = false;
-
+			$wip = array(
+				'isIE' => false,
+				'IEis' => false,
+				'isMobile' => false,
+				'isTablet' => false,
+				'mobile' => array(
+					'phones' => array(
+						'isiPhone' => false,
+						'isBlackBerry' => false,
+						'isHTC' => false,
+						'isNexus' => false,
+						'isDellStreak' => false,
+						'isMotorola' => false,
+						'isSamsung' => false,
+						'isSony' => false,
+						'isAsus' => false,
+						'isPalm' => false,
+						//Version 2.5.5
+						'isFly' => false,
+						//Version 2.7.9
+						'isLG' => false,
+						'isMicromax' => false,
+						'isiMobile' => false,
+						'isSimValley' => false,
+						//Generic
+						'isGenericPhone' => false,
+					),
+					'tablets' => array(	
+						'isBlackBerryTablet' => false,
+						'isiPad' => false,
+						'isKindle' => false,
+						'isSamsungTablet' => false,
+						'isHTCtablet' => false,
+						'isMotorolaTablet' => false,
+						'isAsusTablet' => false,
+						'isNookTablet' => false,
+						'isAcerTablet' => false,
+						'isYarvikTablet' => false,
+	    					//Version 2.5.3
+	    					'isToshibaTablet' => false,
+	    					'isCubeTablet' => false,
+	    					'isCobyTablet' => false,
+	    					'isSMiTTablet' => false,
+	    					'isRockChipTablet' => false,
+	    					'isTelstraTablet' => false,
+	    					//Version 2.5.5
+	    					'isPlaystationTablet' => false,
+	    					'isNabiTablet' => false,
+	    					'isNecTablet' => false,
+	    					'isHuaweiTablet' => false,
+	    					'isbqTablet' => false,
+	    					'isFlyTablet' => false,
+	    					'isLGTablet' => false,
+	    					//Version 2.7.9
+						'isSurfaceTablet' => false,
+						'isHPTablet' => false,
+						'isFujitsuTablet' => false,
+						'isPrestigioTablet' => false,
+						'isLenovoTablet' => false,
+						'isIntensoTablet' => false,
+						'isIRUTablet' => false,
+						'isMegafonTablet' => false,
+						'isEbodaTablet' => false,
+						'isAllViewTablet' => false,
+						'isSonyTablet' => false,
+						'isMIDTablet' => false,
+						'isPantechTablet' => false,
+						'isBronchoTablet' => false,
+						'isVersusTablet' => false,
+						'isZyncTablet' => false,
+						'isPositivoTablet' => false,
+						'isKoboTablet' => false,
+						'isDanewTablet' => false,
+						'isTexetTablet' => false,
+						'isTrekstorTablet' => false,
+						'isPyleAudioTablet' => false,
+						'isAdvanTablet' => false,
+						'isDanyTechTablet' => false,
+						'isGalapadTablet' => false,
+						'isMicromaxTablet' => false,
+						'isKarbonnTablet' => false,
+						'isAllFineTablet' => false,
+						'isPROSCANTablet' => false,
+						'isYONESTablet' => false,
+						'isChangJiaTablet' => false,
+						'isGUTablet' => false,
+						'isPointOfViewTablet' => false,
+						'isOvermaxTablet' => false,
+						'isHCLTablet' => false,
+						'isDPSTablet' => false,
+						'isVistureTablet' => false,
+						'isCrestaTablet' => false,
+						'isMediatekTablet' => false,
+						'isConcordeTablet' => false,
+						'isGoCleverTablet' => false,
+						'isModecomTablet' => false,
+						'isVoninoTablet' => false,
+						'isECSTablet' => false,
+						'isStorexTablet' => false,
+						'isVodafoneTablet' => false,
+						'isEssentielBTablet' => false,
+						'isRossMoorTablet' => false,
+						'isiMobileTablet' => false,
+						'isTolinoTablet' => false,
+						'isHudl' => false,
+	    					//Generic
+						'isGenericTablet' => false
+					),
+					'os' => array(
+						'isAndroidOS' => false,
+						'isBlackBerryOS' => false,
+						'isPalmOS' => false,
+						'isSymbianOS' => false,
+						'isWindowsMobileOS' => false,
+						'isiOS' => false,
+						'isJavaOS' => false,
+						'isNokiaOS' => false,
+						'iswebOS' => false,
+						'isbadaOS' => false,
+						'isBREWOS' => false
+					),
+					'browser' => array(
+						//Doesn't work well because broswers let users select which useragent they want to use; ie: Dolfin (Dolphin)
+						'isChrome' => false,
+						'isDolfin' => false,
+						'isOpera' => false,
+						'isSkyfire' => false,
+						'isIE' => false,
+						'isFirefox' => false,
+						'isBolt' => false,
+						'isTeaShark' => false,
+						'isBlazer' => false,
+						'isSafari' => false,
+						//Version 2.5.3
+	      					'isMidori' => false,
+	      					'isDiigoBrowser' => false,
+	      					'isPuffin' => false,
+						//Version 2.7.9
+	      					'isMercury' => false,
+						//Generic
+	      					'isGenericBrowser' => false
+					)
+				)
+			);
 
       			if( isset($_SERVER['HTTP_USER_AGENT']) )
       			{
@@ -102,114 +161,178 @@ class Sedo_DetectBrowser_Listener_Visitor
       				$Mobiledetect = new Sedo_DetectBrowser_Helper_MobileDetect();
       				if( $Mobiledetect->isMobile() )
       				{
-      					$wip['isMobile'] = true;
-
-      					//PHONES
-      					$wip['mobile']['phones']['isiPhone'] =  $Mobiledetect->isiPhone();
-      					$wip['mobile']['phones']['isBlackBerry'] =  $Mobiledetect->isBlackBerry();
-      					$wip['mobile']['phones']['isHTC'] =  $Mobiledetect->isHTC();
-      					$wip['mobile']['phones']['isNexus'] =  $Mobiledetect->isNexus();
-      					$wip['mobile']['phones']['isDellStreak'] =  $Mobiledetect->isDellStreak();
-      					$wip['mobile']['phones']['isMotorola'] =  $Mobiledetect->isMotorola();
-      					$wip['mobile']['phones']['isSamsung'] =  $Mobiledetect->isSamsung();
-      					$wip['mobile']['phones']['isSony'] =  $Mobiledetect->isSony();
-      					$wip['mobile']['phones']['isAsus'] =  $Mobiledetect->isAsus();
-      					$wip['mobile']['phones']['isPalm'] =  $Mobiledetect->isPalm();
-
-      						//Version 2.5.5
-      						$wip['mobile']['phones']['isFly'] =  $Mobiledetect->isFly();
-
-      					$wip['mobile']['phones']['isGenericPhone'] =  $Mobiledetect->isGenericPhone();
-
+					$wip = array(
+						'isMobile' => true,
+						'mobile' => array(
+							'phones' => array(
+								'isiPhone' => $Mobiledetect->isiPhone(),
+								'isBlackBerry' => $Mobiledetect->isBlackBerry(),
+								'isHTC' => $Mobiledetect->isHTC(),
+								'isNexus' => $Mobiledetect->isNexus(),
+								'isDellStreak' => $Mobiledetect->isDellStreak(),
+								'isMotorola' => $Mobiledetect->isMotorola(),
+								'isSamsung' => $Mobiledetect->isSamsung(),
+								'isSony' => $Mobiledetect->isSony(),
+								'isAsus' => $Mobiledetect->isAsus(),
+								'isPalm' => $Mobiledetect->isPalm(),
+								//Version 2.5.5
+								'isFly' => $Mobiledetect->isFly(),
+								//Version 2.7.9
+								'isLG' => $Mobiledetect->isLG(),
+								'isMicromax' => $Mobiledetect->isMicromax(),
+								'isiMobile' => $Mobiledetect->isiMobile(),
+								'isSimValley' => $Mobiledetect->isSimValley(),
+								//Generic
+								'isGenericPhone' => $Mobiledetect->isGenericPhone()
+							),
+							'os' => array(
+								'isAndroidOS' => $Mobiledetect->isAndroidOS(),
+								'isBlackBerryOS' => $Mobiledetect->isBlackBerryOS(),
+								'isPalmOS' => $Mobiledetect->isPalmOS(),
+								'isSymbianOS' => $Mobiledetect->isSymbianOS(),
+								'isWindowsMobileOS' => $Mobiledetect->isWindowsMobileOS(),
+								'isiOS' => $Mobiledetect->isiOS(),
+								'isJavaOS' => $Mobiledetect->isJavaOS(),
+								'isNokiaOS' => $Mobiledetect->isNokiaOS(),
+								'iswebOS' => $Mobiledetect->iswebOS(),
+								'isbadaOS' => $Mobiledetect->isbadaOS(),
+								'isBREWOS' => $Mobiledetect->isBREWOS()
+							),
+							'browser' => array(
+								//Doesn't work well because broswers let users select which useragent they want to use; ie: Dolfin (Dolphin)
+								'isChrome' => $Mobiledetect->isChrome(),
+								'isDolfin' => $Mobiledetect->isDolfin(),
+								'isOpera' => $Mobiledetect->isOpera(),
+								'isSkyfire' => $Mobiledetect->isSkyfire(),
+								'isIE' => $Mobiledetect->isIE(),
+								'isFirefox' => $Mobiledetect->isFirefox(),
+								'isBolt' => $Mobiledetect->isBolt(),
+								'isTeaShark' => $Mobiledetect->isTeaShark(),
+								'isBlazer' => $Mobiledetect->isBlazer(),
+								'isSafari' => $Mobiledetect->isSafari(),
+								//Version 2.5.3
+			      					'isMidori' => false, //had been taken back
+			      					'isDiigoBrowser' => $Mobiledetect->isDiigoBrowser(),
+			      					'isPuffin' => $Mobiledetect->isPuffin(),
+								//Version 2.7.9
+		      						'isMercury' => $Mobiledetect->isMercury(),
+								//Generic
+			      					'isGenericBrowser' => $Mobiledetect->isGenericBrowser()
+							)
+						)
+					);
+					
       					//TABLETS
       					if( $Mobiledetect->isTablet() )
       					{
 	      					$wip['isTablet'] = true;
-      						$wip['mobile']['tablets']['isBlackBerryTablet'] = $Mobiledetect->isBlackBerryTablet();
-      						$wip['mobile']['tablets']['isiPad'] = $Mobiledetect->isiPad();
-      						$wip['mobile']['tablets']['isKindle'] = $Mobiledetect->isKindle();
-      						$wip['mobile']['tablets']['isSamsungTablet'] = $Mobiledetect->isSamsungTablet();
-      						$wip['mobile']['tablets']['isHTCtablet'] = $Mobiledetect->isHTCtablet();
-      						$wip['mobile']['tablets']['isMotorolaTablet'] = $Mobiledetect->isMotorolaTablet();
-      						$wip['mobile']['tablets']['isAsusTablet'] = $Mobiledetect->isAsusTablet();
-      						$wip['mobile']['tablets']['isNookTablet'] = $Mobiledetect->isNookTablet();
-      						$wip['mobile']['tablets']['isAcerTablet'] = $Mobiledetect->isAcerTablet();
-      						$wip['mobile']['tablets']['isYarvikTablet'] = $Mobiledetect->isYarvikTablet();
-      						
-      						//Version 2.5.3
-      						$wip['mobile']['tablets']['isToshibaTablet'] = $Mobiledetect->isToshibaTablet();
-      						$wip['mobile']['tablets']['isCubeTablet'] = $Mobiledetect->isCubeTablet();
-      						$wip['mobile']['tablets']['isCobyTablet'] = $Mobiledetect->isCobyTablet();
-      						$wip['mobile']['tablets']['isSMiTTablet'] = $Mobiledetect->isSMiTTablet();
-      						$wip['mobile']['tablets']['isRockChipTablet'] = $Mobiledetect->isRockChipTablet();
-      						$wip['mobile']['tablets']['isTelstraTablet'] = $Mobiledetect->isTelstraTablet();
+						$wip['mobile']['tablets'] = array(
+	      						'isBlackBerryTablet' => $Mobiledetect->isBlackBerryTablet(),
+	      						'isiPad' => $Mobiledetect->isiPad(),
+	      						'isKindle' => $Mobiledetect->isKindle(),
+	      						'isSamsungTablet' => $Mobiledetect->isSamsungTablet(),
+	      						'isHTCtablet' => $Mobiledetect->isHTCtablet(),
+	      						'isMotorolaTablet' => $Mobiledetect->isMotorolaTablet(),
+	      						'isAsusTablet' => $Mobiledetect->isAsusTablet(),
+	      						'isNookTablet' => $Mobiledetect->isNookTablet(),
+	      						'isAcerTablet' => $Mobiledetect->isAcerTablet(),
+	      						'isYarvikTablet' => $Mobiledetect->isYarvikTablet(),
+	      						
+	      						//Version 2.5.3
+	      						'isToshibaTablet' => $Mobiledetect->isToshibaTablet(),
+	      						'isCubeTablet' => $Mobiledetect->isCubeTablet(),
+	      						'isCobyTablet' => $Mobiledetect->isCobyTablet(),
+	      						'isSMiTTablet' => $Mobiledetect->isSMiTTablet(),
+	      						'isRockChipTablet' => $Mobiledetect->isRockChipTablet(),
+	      						'isTelstraTablet' => $Mobiledetect->isTelstraTablet(),
+	
+	      						//Version 2.5.5
+	    						'isPlaystationTablet' => $Mobiledetect->isPlaystationTablet(),
+	    						'isNabiTablet' => $Mobiledetect->isNabiTablet(),
+	    						'isNecTablet' => $Mobiledetect->isNecTablet(),
+	    						'isHuaweiTablet' => $Mobiledetect->isHuaweiTablet(),
+	    						'isbqTablet' => $Mobiledetect->isbqTablet(),
+		    					'isFlyTablet' => $Mobiledetect->isFlyTablet(),
+		    					'isLGTablet' => $Mobiledetect->isLGTablet(),
+	
+		    					//Version 2.7.9
+							'isSurfaceTablet' => $Mobiledetect->isSurfaceTablet(),
+							'isHPTablet' => $Mobiledetect->isHPTablet(),
+							'isFujitsuTablet' => $Mobiledetect->isFujitsuTablet(),
+							'isPrestigioTablet' => $Mobiledetect->isPrestigioTablet(),
+							'isLenovoTablet' => $Mobiledetect->isLenovoTablet(),
+							'isIntensoTablet' => $Mobiledetect->isIntensoTablet(),
+							'isIRUTablet' => $Mobiledetect->isIRUTablet(),
+							'isMegafonTablet' => $Mobiledetect->isMegafonTablet(),
+							'isEbodaTablet' => $Mobiledetect->isEbodaTablet(),
+							'isAllViewTablet' => $Mobiledetect->isAllViewTablet(),
+							'isSonyTablet' => $Mobiledetect->isSonyTablet(),
+							'isMIDTablet' => $Mobiledetect->isMIDTablet(),
+							'isPantechTablet' => $Mobiledetect->isPantechTablet(),
+							'isBronchoTablet' => $Mobiledetect->isBronchoTablet(),
+							'isVersusTablet' => $Mobiledetect->isVersusTablet(),
+							'isZyncTablet' => $Mobiledetect->isZyncTablet(),
+							'isPositivoTablet' => $Mobiledetect->isPositivoTablet(),
+							'isKoboTablet' => $Mobiledetect->isKoboTablet(),
+							'isDanewTablet' => $Mobiledetect->isDanewTablet(),
+							'isTexetTablet' => $Mobiledetect->isTexetTablet(),
+							'isTrekstorTablet' => $Mobiledetect->isTrekstorTablet(),
+							'isPyleAudioTablet' => $Mobiledetect->isPyleAudioTablet(),
+							'isAdvanTablet' => $Mobiledetect->isAdvanTablet(),
+							'isDanyTechTablet' => $Mobiledetect->isDanyTechTablet(),
+							'isGalapadTablet' => $Mobiledetect->isGalapadTablet(),
+							'isMicromaxTablet' => $Mobiledetect->isMicromaxTablet(),
+							'isKarbonnTablet' => $Mobiledetect->isKarbonnTablet(),
+							'isAllFineTablet' => $Mobiledetect->isAllFineTablet(),
+							'isPROSCANTablet' => $Mobiledetect->isPROSCANTablet(),
+							'isYONESTablet' => $Mobiledetect->isYONESTablet(),
+							'isChangJiaTablet' => $Mobiledetect->isChangJiaTablet(),
+							'isGUTablet' => $Mobiledetect->isGUTablet(),
+							'isPointOfViewTablet' => $Mobiledetect->isPointOfViewTablet(),
+							'isOvermaxTablet' => $Mobiledetect->isOvermaxTablet(),
+							'isHCLTablet' => $Mobiledetect->isHCLTablet(),
+							'isDPSTablet' => $Mobiledetect->isDPSTablet(),
+							'isVistureTablet' => $Mobiledetect->isVistureTablet(),
+							'isCrestaTablet' => $Mobiledetect->isCrestaTablet(),
+							'isMediatekTablet' => $Mobiledetect->isMediatekTablet(),
+							'isConcordeTablet' => $Mobiledetect->isConcordeTablet(),
+							'isGoCleverTablet' => $Mobiledetect->isGoCleverTablet(),
+							'isModecomTablet' => $Mobiledetect->isModecomTablet(),
+							'isVoninoTablet' => $Mobiledetect->isVoninoTablet(),
+							'isECSTablet' => $Mobiledetect->isECSTablet(),
+							'isStorexTablet' => $Mobiledetect->isStorexTablet(),
+							'isVodafoneTablet' => $Mobiledetect->isVodafoneTablet(),
+							'isEssentielBTablet' => $Mobiledetect->isEssentielBTablet(),
+							'isRossMoorTablet' => $Mobiledetect->isRossMoorTablet(),
+							'isiMobileTablet' => $Mobiledetect->isiMobileTablet(),
+							'isTolinoTablet' => $Mobiledetect->isTolinoTablet(),
+							'isHudl' => $Mobiledetect->isHudl(),
 
-      						//Version 2.5.5
-    						$wip['mobile']['tablets']['isPlaystationTablet'] = $Mobiledetect->isPlaystationTablet();
-    						$wip['mobile']['tablets']['isNabiTablet'] = $Mobiledetect->isNabiTablet();
-    						$wip['mobile']['tablets']['isNecTablet'] = $Mobiledetect->isNecTablet();
-    						$wip['mobile']['tablets']['isHuaweiTablet'] = $Mobiledetect->isHuaweiTablet();
-    						$wip['mobile']['tablets']['isbqTablet'] = $Mobiledetect->isbqTablet();
-	    					$wip['mobile']['tablets']['isFlyTablet'] = $Mobiledetect->isFlyTablet();
-	    					$wip['mobile']['tablets']['isLGTablet'] = $Mobiledetect->isLGTablet();
-
-						//Generic
-      						$wip['mobile']['tablets']['isGenericTablet'] = $Mobiledetect->isGenericTablet();
+							//Generic
+		      					'isGenericTablet' => $Mobiledetect->isGenericTablet()
+						);
       					}
-
-      					//OS
-      					$wip['mobile']['os']['isAndroidOS'] = $Mobiledetect->isAndroidOS();
-      					$wip['mobile']['os']['isBlackBerryOS'] = $Mobiledetect->isBlackBerryOS();
-      					$wip['mobile']['os']['isPalmOS'] = $Mobiledetect->isPalmOS();
-      					$wip['mobile']['os']['isSymbianOS'] = $Mobiledetect->isSymbianOS();
-      					$wip['mobile']['os']['isWindowsMobileOS'] = $Mobiledetect->isWindowsMobileOS();
-      					$wip['mobile']['os']['isiOS'] = $Mobiledetect->isiOS();
-      					$wip['mobile']['os']['isJavaOS'] = $Mobiledetect->isJavaOS();
-      					$wip['mobile']['os']['isNokiaOS'] = $Mobiledetect->isNokiaOS();
-      					$wip['mobile']['os']['iswebOS'] = $Mobiledetect->iswebOS();
-      					$wip['mobile']['os']['isbadaOS'] = $Mobiledetect->isbadaOS();
-      					$wip['mobile']['os']['isBREWOS'] = $Mobiledetect->isBREWOS();
-  						
-      					//BROWSERS
-					//Doesn't work well because broswers let users select which useragent they want to use; ie: Dolfin (Dolphin)
-      					$wip['mobile']['browser']['isChrome'] =  $Mobiledetect->isChrome();
-      					$wip['mobile']['browser']['isDolfin'] =  $Mobiledetect->isDolfin();
-      					$wip['mobile']['browser']['isOpera'] =  $Mobiledetect->isOpera();
-      					$wip['mobile']['browser']['isSkyfire'] =  $Mobiledetect->isSkyfire();
-      					$wip['mobile']['browser']['isIE'] =  $Mobiledetect->isIE();
-      					$wip['mobile']['browser']['isFirefox'] =  $Mobiledetect->isFirefox();
-      					$wip['mobile']['browser']['isBolt'] =  $Mobiledetect->isBolt();
-      					$wip['mobile']['browser']['isTeaShark'] =  $Mobiledetect->isTeaShark();
-      					$wip['mobile']['browser']['isBlazer'] =  $Mobiledetect->isBlazer();
-      					$wip['mobile']['browser']['isSafari'] =  $Mobiledetect->isSafari();
-      					
-					//Version 2.5.3
-      					$wip['mobile']['browser']['isMidori'] =  false; //had been taken back
-      					$wip['mobile']['browser']['isDiigoBrowser'] =  $Mobiledetect->isDiigoBrowser();
-      					$wip['mobile']['browser']['isPuffin'] =  $Mobiledetect->isPuffin();
-
-					//Generic
-      					$wip['mobile']['browser']['isGenericBrowser'] =  $Mobiledetect->isGenericBrowser();
-      				}							
+      				}
 
       				//Check if IE
       				if(self::isIE($useragent) == true)
       				{
       					$wip['isIE'] = true;
       					$wip['IEis'] = self::$IE['version'];
-      				}
+      				}      											
 			}
 
 			//Insert into visitor object
-			$visitor['getBrowser'] = $wip;	
+			$visitor['getBrowser'] = $wip;
+			//Zend_Debug::dump($wip);
 		}
 	}
 
 	public static function isIE($useragent)
 	{
-		/*
-			Home made function - tested without IE and IEtester
-		*/
+		/***
+		 *	Home made function - tested without IE and IEtester
+		 **/
 		if(preg_match('/msie/', $useragent))
        		{
       			if (preg_match('/trident\/(\d{1,2})/', $useragent, $match))
@@ -233,9 +356,18 @@ class Sedo_DetectBrowser_Listener_Visitor
 			
 	       		return true;
 	       	}
-		
+	       	elseif(strpos($useragent, 'like gecko') !== false && preg_match('#trident/(\d{1,2})\.(\d{1,2})#', $useragent, $match))
+	       	{
+	       		if(intval($match[1]) == 7)
+	       		{
+	       			//Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko
+	       			$IE['version'] = 11;
+	       			self::$IE = $IE;
+				return true;
+	       		}
+	       	}	       	
+
 		return false;
 	}
 }	
-
 //Zend_Debug::dump($abc);
