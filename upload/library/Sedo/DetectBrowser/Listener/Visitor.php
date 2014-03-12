@@ -161,7 +161,7 @@ class Sedo_DetectBrowser_Listener_Visitor
       				$Mobiledetect = new Sedo_DetectBrowser_Helper_MobileDetect();
       				if( $Mobiledetect->isMobile() )
       				{
-					$wip = array(
+					$wip = array_merge($wip, array(
 						'isMobile' => true,
 						'mobile' => array(
 							'phones' => array(
@@ -220,7 +220,7 @@ class Sedo_DetectBrowser_Listener_Visitor
 			      					'isGenericBrowser' => $Mobiledetect->isGenericBrowser()
 							)
 						)
-					);
+					));
 					
       					//TABLETS
       					if( $Mobiledetect->isTablet() )
