@@ -1,5 +1,5 @@
 **********************************************
-* Browser Detection (Mobile/MSIE)  v1.2      *
+* Browser Detection (Mobile/MSIE)  v1.3      *
 * by Cédric CLAERHOUT                        *
 **********************************************
 
@@ -56,6 +56,10 @@ This addon will also check if the browser is our beloved Internet Explorer and w
 					$visitor.getBrowser.mobile.phones.isAsus
 					$visitor.getBrowser.mobile.phones.isPalm
 					$visitor.getBrowser.mobile.phones.isFly
+					$visitor.getBrowser.mobile.phones.isLG
+					$visitor.getBrowser.mobile.phones.isMicromax
+					$visitor.getBrowser.mobile.phones.isiMobile
+					$visitor.getBrowser.mobile.phones.isSimValley
 					$visitor.getBrowser.mobile.phones.isGenericPhone
 		
 					//Tablets
@@ -82,8 +86,59 @@ This addon will also check if the browser is our beloved Internet Explorer and w
 					$visitor.getBrowser.mobile.tablets.isbqTablet
 					$visitor.getBrowser.mobile.tablets.isFlyTablet
 					$visitor.getBrowser.mobile.tablets.isLGTablet
-					$visitor.getBrowser.mobile.tablets.isGenericTablet		
-		 
+      					$visitor.getBrowser.mobile.tablets.isSurfaceTablet
+      					$visitor.getBrowser.mobile.tablets.isHPTablet
+      					$visitor.getBrowser.mobile.tablets.isFujitsuTablet
+      					$visitor.getBrowser.mobile.tablets.isPrestigioTablet
+      					$visitor.getBrowser.mobile.tablets.isLenovoTablet
+      					$visitor.getBrowser.mobile.tablets.isIntensoTablet
+      					$visitor.getBrowser.mobile.tablets.isIRUTablet
+      					$visitor.getBrowser.mobile.tablets.isMegafonTablet
+      					$visitor.getBrowser.mobile.tablets.isEbodaTablet
+      					$visitor.getBrowser.mobile.tablets.isAllViewTablet
+      					$visitor.getBrowser.mobile.tablets.isSonyTablet
+      					$visitor.getBrowser.mobile.tablets.isMIDTablet
+      					$visitor.getBrowser.mobile.tablets.isPantechTablet
+      					$visitor.getBrowser.mobile.tablets.isBronchoTablet
+      					$visitor.getBrowser.mobile.tablets.isVersusTablet
+      					$visitor.getBrowser.mobile.tablets.isZyncTablet
+      					$visitor.getBrowser.mobile.tablets.isPositivoTablet
+      					$visitor.getBrowser.mobile.tablets.isKoboTablet
+      					$visitor.getBrowser.mobile.tablets.isDanewTablet
+      					$visitor.getBrowser.mobile.tablets.isTexetTablet
+      					$visitor.getBrowser.mobile.tablets.isTrekstorTablet
+      					$visitor.getBrowser.mobile.tablets.isPyleAudioTablet
+      					$visitor.getBrowser.mobile.tablets.isAdvanTablet
+      					$visitor.getBrowser.mobile.tablets.isDanyTechTablet
+      					$visitor.getBrowser.mobile.tablets.isGalapadTablet
+      					$visitor.getBrowser.mobile.tablets.isMicromaxTablet
+      					$visitor.getBrowser.mobile.tablets.isKarbonnTablet
+      					$visitor.getBrowser.mobile.tablets.isAllFineTablet
+      					$visitor.getBrowser.mobile.tablets.isPROSCANTablet
+      					$visitor.getBrowser.mobile.tablets.isYONESTablet
+      					$visitor.getBrowser.mobile.tablets.isChangJiaTablet
+      					$visitor.getBrowser.mobile.tablets.isGUTablet
+      					$visitor.getBrowser.mobile.tablets.isPointOfViewTablet
+      					$visitor.getBrowser.mobile.tablets.isOvermaxTablet
+      					$visitor.getBrowser.mobile.tablets.isHCLTablet
+      					$visitor.getBrowser.mobile.tablets.isDPSTablet
+      					$visitor.getBrowser.mobile.tablets.isVistureTablet
+      					$visitor.getBrowser.mobile.tablets.isCrestaTablet
+      					$visitor.getBrowser.mobile.tablets.isMediatekTablet
+      					$visitor.getBrowser.mobile.tablets.isConcordeTablet
+      					$visitor.getBrowser.mobile.tablets.isGoCleverTablet
+      					$visitor.getBrowser.mobile.tablets.isModecomTablet
+      					$visitor.getBrowser.mobile.tablets.isVoninoTablet
+      					$visitor.getBrowser.mobile.tablets.isECSTablet
+      					$visitor.getBrowser.mobile.tablets.isStorexTablet
+      					$visitor.getBrowser.mobile.tablets.isVodafoneTablet
+      					$visitor.getBrowser.mobile.tablets.isEssentielBTablet
+      					$visitor.getBrowser.mobile.tablets.isRossMoorTablet
+      					$visitor.getBrowser.mobile.tablets.isiMobileTablet
+      					$visitor.getBrowser.mobile.tablets.isTolinoTablet
+      					$visitor.getBrowser.mobile.tablets.isHudl
+					$visitor.getBrowser.mobile.tablets.isGenericTablet
+
 					//Os
 					$visitor.getBrowser.mobile.os.isAndroidOS
 					$visitor.getBrowser.mobile.os.isBlackBerryOS
@@ -111,6 +166,7 @@ This addon will also check if the browser is our beloved Internet Explorer and w
 					$visitor.getBrowser.mobile.browser.isSafari
       					$visitor.getBrowser.mobile.browser.isDiigoBrowser
       					$visitor.getBrowser.mobile.browser.isPuffin
+      					$visitor.getBrowser.mobile.browser.isMercury
 					$visitor.getBrowser.mobile.browser.isGenericBrowser
 
 
@@ -167,6 +223,10 @@ This addon will also check if the browser is our beloved Internet Explorer and w
 					$visitor->getBrowser['mobile']['phones']['isAsus']
 					$visitor->getBrowser['mobile']['phones']['isPalm']
 					$visitor->getBrowser['mobile']['phones']['isFly']
+					$visitor->getBrowser['mobile']['phones']['isLG']
+					$visitor->getBrowser['mobile']['phones']['isMicromax']
+					$visitor->getBrowser['mobile']['phones']['isiMobile']
+					$visitor->getBrowser['mobile']['phones']['isSimValley']
 					$visitor->getBrowser['mobile']['phones']['isGenericPhone']
 		
 					//Tablets
@@ -193,6 +253,57 @@ This addon will also check if the browser is our beloved Internet Explorer and w
 					$visitor->getBrowser['mobile']['tablets']['isbqTablet']
 					$visitor->getBrowser['mobile']['tablets']['isFlyTablet']
 					$visitor->getBrowser['mobile']['tablets']['isLGTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isSurfaceTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isHPTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isFujitsuTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isPrestigioTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isLenovoTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isIntensoTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isIRUTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isMegafonTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isEbodaTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isAllViewTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isSonyTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isMIDTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isPantechTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isBronchoTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isVersusTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isZyncTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isPositivoTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isKoboTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isDanewTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isTexetTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isTrekstorTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isPyleAudioTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isAdvanTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isDanyTechTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isGalapadTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isMicromaxTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isKarbonnTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isAllFineTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isPROSCANTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isYONESTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isChangJiaTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isGUTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isPointOfViewTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isOvermaxTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isHCLTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isDPSTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isVistureTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isCrestaTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isMediatekTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isConcordeTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isGoCleverTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isModecomTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isVoninoTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isECSTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isStorexTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isVodafoneTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isEssentielBTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isRossMoorTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isiMobileTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isTolinoTablet']
+      					$visitor->getBrowser['mobile']['tablets']['isHudl']
 					$visitor->getBrowser['mobile']['tablets']['isGenericTablet']
 		 
 					//Os
@@ -222,6 +333,7 @@ This addon will also check if the browser is our beloved Internet Explorer and w
 					$visitor->getBrowser['mobile']['browser']['isSafari']
       					$visitor->getBrowser['mobile']['browser']['isDiigoBrowser']
       					$visitor->getBrowser['mobile']['browser']['isPuffin']
+      					$visitor->getBrowser['mobile']['browser']['isMercury']
 					$visitor->getBrowser['mobile']['browser']['isGenericBrowser']
 
 
