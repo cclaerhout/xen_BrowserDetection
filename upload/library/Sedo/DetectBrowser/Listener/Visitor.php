@@ -161,66 +161,65 @@ class Sedo_DetectBrowser_Listener_Visitor
       				$Mobiledetect = new Sedo_DetectBrowser_Helper_MobileDetect();
       				if( $Mobiledetect->isMobile() )
       				{
-					$wip = array_merge($wip, array(
-						'isMobile' => true,
-						'mobile' => array(
-							'phones' => array(
-								'isiPhone' => $Mobiledetect->isiPhone(),
-								'isBlackBerry' => $Mobiledetect->isBlackBerry(),
-								'isHTC' => $Mobiledetect->isHTC(),
-								'isNexus' => $Mobiledetect->isNexus(),
-								'isDellStreak' => $Mobiledetect->isDellStreak(),
-								'isMotorola' => $Mobiledetect->isMotorola(),
-								'isSamsung' => $Mobiledetect->isSamsung(),
-								'isSony' => $Mobiledetect->isSony(),
-								'isAsus' => $Mobiledetect->isAsus(),
-								'isPalm' => $Mobiledetect->isPalm(),
-								//Version 2.5.5
-								'isFly' => $Mobiledetect->isFly(),
-								//Version 2.7.9
-								'isLG' => $Mobiledetect->isLG(),
-								'isMicromax' => $Mobiledetect->isMicromax(),
-								'isiMobile' => $Mobiledetect->isiMobile(),
-								'isSimValley' => $Mobiledetect->isSimValley(),
-								//Generic
-								'isGenericPhone' => $Mobiledetect->isGenericPhone()
-							),
-							'os' => array(
-								'isAndroidOS' => $Mobiledetect->isAndroidOS(),
-								'isBlackBerryOS' => $Mobiledetect->isBlackBerryOS(),
-								'isPalmOS' => $Mobiledetect->isPalmOS(),
-								'isSymbianOS' => $Mobiledetect->isSymbianOS(),
-								'isWindowsMobileOS' => $Mobiledetect->isWindowsMobileOS(),
-								'isiOS' => $Mobiledetect->isiOS(),
-								'isJavaOS' => $Mobiledetect->isJavaOS(),
-								'isNokiaOS' => $Mobiledetect->isNokiaOS(),
-								'iswebOS' => $Mobiledetect->iswebOS(),
-								'isbadaOS' => $Mobiledetect->isbadaOS(),
-								'isBREWOS' => $Mobiledetect->isBREWOS()
-							),
-							'browser' => array(
-								//Doesn't work well because broswers let users select which useragent they want to use; ie: Dolfin (Dolphin)
-								'isChrome' => $Mobiledetect->isChrome(),
-								'isDolfin' => $Mobiledetect->isDolfin(),
-								'isOpera' => $Mobiledetect->isOpera(),
-								'isSkyfire' => $Mobiledetect->isSkyfire(),
-								'isIE' => $Mobiledetect->isIE(),
-								'isFirefox' => $Mobiledetect->isFirefox(),
-								'isBolt' => $Mobiledetect->isBolt(),
-								'isTeaShark' => $Mobiledetect->isTeaShark(),
-								'isBlazer' => $Mobiledetect->isBlazer(),
-								'isSafari' => $Mobiledetect->isSafari(),
-								//Version 2.5.3
-			      					'isMidori' => false, //had been taken back
-			      					'isDiigoBrowser' => $Mobiledetect->isDiigoBrowser(),
-			      					'isPuffin' => $Mobiledetect->isPuffin(),
-								//Version 2.7.9
-		      						'isMercury' => $Mobiledetect->isMercury(),
-								//Generic
-			      					'isGenericBrowser' => $Mobiledetect->isGenericBrowser()
-							)
-						)
-					));
+					$wip['isMobile'] => true;
+					
+					$wip['mobile']['phones'] = array(
+						'isiPhone' => $Mobiledetect->isiPhone(),
+						'isBlackBerry' => $Mobiledetect->isBlackBerry(),
+						'isHTC' => $Mobiledetect->isHTC(),
+						'isNexus' => $Mobiledetect->isNexus(),
+						'isDellStreak' => $Mobiledetect->isDellStreak(),
+						'isMotorola' => $Mobiledetect->isMotorola(),
+						'isSamsung' => $Mobiledetect->isSamsung(),
+						'isSony' => $Mobiledetect->isSony(),
+						'isAsus' => $Mobiledetect->isAsus(),
+						'isPalm' => $Mobiledetect->isPalm(),
+						//Version 2.5.5
+						'isFly' => $Mobiledetect->isFly(),
+						//Version 2.7.9
+						'isLG' => $Mobiledetect->isLG(),
+						'isMicromax' => $Mobiledetect->isMicromax(),
+						'isiMobile' => $Mobiledetect->isiMobile(),
+						'isSimValley' => $Mobiledetect->isSimValley(),
+						//Generic
+						'isGenericPhone' => $Mobiledetect->isGenericPhone()
+					);
+					
+					$wip['mobile']['os'] = array(
+      						'isAndroidOS' => $Mobiledetect->isAndroidOS(),
+      						'isBlackBerryOS' => $Mobiledetect->isBlackBerryOS(),
+      						'isPalmOS' => $Mobiledetect->isPalmOS(),
+      						'isSymbianOS' => $Mobiledetect->isSymbianOS(),
+      						'isWindowsMobileOS' => $Mobiledetect->isWindowsMobileOS(),
+      						'isiOS' => $Mobiledetect->isiOS(),
+      						'isJavaOS' => $Mobiledetect->isJavaOS(),
+      						'isNokiaOS' => $Mobiledetect->isNokiaOS(),
+      						'iswebOS' => $Mobiledetect->iswebOS(),
+      						'isbadaOS' => $Mobiledetect->isbadaOS(),
+      						'isBREWOS' => $Mobiledetect->isBREWOS()
+					);
+
+					$wip['mobile']['browser'] = array(
+						//Doesn't work well because broswers let users select which useragent they want to use; ie: Dolfin (Dolphin)
+						'isChrome' => $Mobiledetect->isChrome(),
+      						'isDolfin' => $Mobiledetect->isDolfin(),
+      						'isOpera' => $Mobiledetect->isOpera(),
+      						'isSkyfire' => $Mobiledetect->isSkyfire(),
+      						'isIE' => $Mobiledetect->isIE(),
+      						'isFirefox' => $Mobiledetect->isFirefox(),
+      						'isBolt' => $Mobiledetect->isBolt(),
+      						'isTeaShark' => $Mobiledetect->isTeaShark(),
+      						'isBlazer' => $Mobiledetect->isBlazer(),
+      						'isSafari' => $Mobiledetect->isSafari(),
+      						//Version 2.5.3
+      	      					'isMidori' => false, //had been taken back
+      	      					'isDiigoBrowser' => $Mobiledetect->isDiigoBrowser(),
+      	      					'isPuffin' => $Mobiledetect->isPuffin(),
+      						//Version 2.7.9
+            					'isMercury' => $Mobiledetect->isMercury(),
+      						//Generic
+      	      					'isGenericBrowser' => $Mobiledetect->isGenericBrowser()
+					);
 					
       					//TABLETS
       					if( $Mobiledetect->isTablet() )
