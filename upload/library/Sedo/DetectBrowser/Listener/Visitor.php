@@ -161,7 +161,7 @@ class Sedo_DetectBrowser_Listener_Visitor
       				$Mobiledetect = new Sedo_DetectBrowser_Helper_MobileDetect();
       				if( $Mobiledetect->isMobile() )
       				{
-					$wip['isMobile'] => true;
+					$wip['isMobile'] = true;
 					
 					$wip['mobile']['phones'] = array(
 						'isiPhone' => $Mobiledetect->isiPhone(),
