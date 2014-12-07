@@ -32,6 +32,12 @@ class Sedo_DetectBrowser_Listener_Visitor
 						'isMicromax' => false,
 						'isiMobile' => false,
 						'isSimValley' => false,
+						//Version 2.8.11
+						'isWolfgang' => false,
+						'isAlcatel' => false,
+						'isNintendo' => false,
+						'isAmoi' => false,
+						'isINQ' => false,				
 						//Generic
 						'isGenericPhone' => false,
 					),
@@ -113,6 +119,31 @@ class Sedo_DetectBrowser_Listener_Visitor
 						'isiMobileTablet' => false,
 						'isTolinoTablet' => false,
 						'isHudl' => false,
+						//Version 2.8.11
+						'isAudioSonicTablet' => false,
+						'isAMPETablet' => false,
+						'isSkkTablet' => false,
+						'isTecnoTablet' => false,
+						'isJXDTablet'  => false,
+						'isiJoyTablet' => false,
+						'isFX2Tablet' => false,
+						'isXoroTablet' => false,
+						'isViewsonicTablet' => false,
+						'isOdysTablet' => false,
+						'isCaptivaTablet' => false,
+						'isIconbitTablet' => false,
+						'isTeclastTablet' => false,
+						'isJaytechTablet' => false,
+						'isBlaupunktTablet' => false,
+						'isDigmaTablet' => false,
+						'isEvolioTablet' => false,
+						'isLavaTablet' => false,
+						'isCelkonTablet' => false,
+						'isMiTablet' => false,
+						'isNibiruTablet' => false,
+						'isNexoTablet' => false,
+						'isUbislateTablet' => false,
+						'isPocketBookTablet' => false,
 	    					//Generic
 						'isGenericTablet' => false
 					),
@@ -147,6 +178,11 @@ class Sedo_DetectBrowser_Listener_Visitor
 	      					'isPuffin' => false,
 						//Version 2.7.9
 	      					'isMercury' => false,
+						//Version 2.8.11
+						'isbaiduboxapp' => false,
+						'isbaidubrowser' => false,
+						'isObigoBrowser' => false,
+						'isNetFront' => false,
 						//Generic
 	      					'isGenericBrowser' => false
 					)
@@ -181,6 +217,11 @@ class Sedo_DetectBrowser_Listener_Visitor
 						'isMicromax' => $Mobiledetect->isMicromax(),
 						'isiMobile' => $Mobiledetect->isiMobile(),
 						'isSimValley' => $Mobiledetect->isSimValley(),
+						'isWolfgang' => $Mobiledetect->isWolfgang(),
+						'isAlcatel' => $Mobiledetect->isAlcatel(),
+						'isNintendo' => $Mobiledetect->isNintendo(),
+						'isAmoi' => $Mobiledetect->isAmoi(),
+						'isINQ' => $Mobiledetect->isINQ(),							
 						//Generic
 						'isGenericPhone' => $Mobiledetect->isGenericPhone()
 					);
@@ -217,6 +258,11 @@ class Sedo_DetectBrowser_Listener_Visitor
       	      					'isPuffin' => $Mobiledetect->isPuffin(),
       						//Version 2.7.9
             					'isMercury' => $Mobiledetect->isMercury(),
+						//Version 2.8.11
+						'isbaiduboxapp' => $Mobiledetect->isbaiduboxapp(),
+						'isbaidubrowser' => $Mobiledetect->isbaidubrowser(),
+						'isObigoBrowser' => $Mobiledetect->isObigoBrowser(),
+						'isNetFront' => $Mobiledetect->isNetFront(),            					
       						//Generic
       	      					'isGenericBrowser' => $Mobiledetect->isGenericBrowser()
 					);
@@ -306,6 +352,32 @@ class Sedo_DetectBrowser_Listener_Visitor
 							'isiMobileTablet' => $Mobiledetect->isiMobileTablet(),
 							'isTolinoTablet' => $Mobiledetect->isTolinoTablet(),
 							'isHudl' => $Mobiledetect->isHudl(),
+
+							//Version 2.8.11
+							'isAudioSonicTablet' => $Mobiledetect->isAudioSonicTablet(),
+							'isAMPETablet' => $Mobiledetect->isAMPETablet(),
+							'isSkkTablet' => $Mobiledetect->isSkkTablet(),
+							'isTecnoTablet' => $Mobiledetect->isTecnoTablet(),
+							'isJXDTablet' => $Mobiledetect->isJXDTablet(),
+							'isiJoyTablet' => $Mobiledetect->isiJoyTablet(),
+							'isFX2Tablet' => $Mobiledetect->isFX2Tablet(),
+							'isXoroTablet' => $Mobiledetect->isXoroTablet(),
+							'isViewsonicTablet' => $Mobiledetect->isViewsonicTablet(),
+							'isOdysTablet' => $Mobiledetect->isOdysTablet(),
+							'isCaptivaTablet' => $Mobiledetect->isCaptivaTablet(),
+							'isIconbitTablet' => $Mobiledetect->isIconbitTablet(),
+							'isTeclastTablet' => $Mobiledetect->isTeclastTablet(),
+							'isJaytechTablet' => $Mobiledetect->isJaytechTablet(),
+							'isBlaupunktTablet' => $Mobiledetect->isBlaupunktTablet(),
+							'isDigmaTablet' => $Mobiledetect->isDigmaTablet(),
+							'isEvolioTablet' => $Mobiledetect->isEvolioTablet(),
+							'isLavaTablet' => $Mobiledetect->isLavaTablet(),
+							'isCelkonTablet' => $Mobiledetect->isCelkonTablet(),
+							'isMiTablet' => $Mobiledetect->isMiTablet(),
+							'isNibiruTablet' => $Mobiledetect->isNibiruTablet(),
+							'isNexoTablet' => $Mobiledetect->isNexoTablet(),
+							'isUbislateTablet' => $Mobiledetect->isUbislateTablet(),
+							'isPocketBookTablet' => $Mobiledetect->isPocketBookTablet(),
 
 							//Generic
 		      					'isGenericTablet' => $Mobiledetect->isGenericTablet()
