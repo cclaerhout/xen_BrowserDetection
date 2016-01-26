@@ -37,7 +37,9 @@ class Sedo_DetectBrowser_Listener_Visitor
 						'isAlcatel' => false,
 						'isNintendo' => false,
 						'isAmoi' => false,
-						'isINQ' => false,				
+						'isINQ' => false,
+						//Version 2.8.19
+						'isWiko' => false,				
 						//Generic
 						'isGenericPhone' => false,
 					),
@@ -144,6 +146,12 @@ class Sedo_DetectBrowser_Listener_Visitor
 						'isNexoTablet' => false,
 						'isUbislateTablet' => false,
 						'isPocketBookTablet' => false,
+						//Version 2.8.19
+						'isOndaTablet' => false,
+						'isAocTablet' => false,
+						'isWolderTablet' => false,
+						'isLeaderTablet' => false,
+						'isHudl' => false,
 	    					//Generic
 						'isGenericTablet' => false
 					),
@@ -221,7 +229,9 @@ class Sedo_DetectBrowser_Listener_Visitor
 						'isAlcatel' => $Mobiledetect->isAlcatel(),
 						'isNintendo' => $Mobiledetect->isNintendo(),
 						'isAmoi' => $Mobiledetect->isAmoi(),
-						'isINQ' => $Mobiledetect->isINQ(),							
+						'isINQ' => $Mobiledetect->isINQ(),
+						//Version 2.8.19
+						'isWiko' => $Mobiledetect->isWiko(),												
 						//Generic
 						'isGenericPhone' => $Mobiledetect->isGenericPhone()
 					);
@@ -378,6 +388,13 @@ class Sedo_DetectBrowser_Listener_Visitor
 							'isNexoTablet' => $Mobiledetect->isNexoTablet(),
 							'isUbislateTablet' => $Mobiledetect->isUbislateTablet(),
 							'isPocketBookTablet' => $Mobiledetect->isPocketBookTablet(),
+
+							//Version 2.8.19
+							'isOndaTablet' => $Mobiledetect->isOndaTablet(),
+							'isAocTablet' => $Mobiledetect->isAocTablet(),
+							'isWolderTablet' => $Mobiledetect->isWolderTablet(),
+							'isLeaderTablet' => $Mobiledetect->isLeaderTablet(),
+							'isHudl' => $Mobiledetect->isHudl(),
 
 							//Generic
 		      					'isGenericTablet' => $Mobiledetect->isGenericTablet()

@@ -1,6 +1,4 @@
 <?php
-class Sedo_DetectBrowser_Helper_MobileDetect
-{
 /**
  * Mobile Detect Library
  * =====================
@@ -24,9 +22,11 @@ class Sedo_DetectBrowser_Helper_MobileDetect
  *              README:       https://github.com/serbanghita/Mobile-Detect/blob/master/README.md
  *              HOWTO:        https://github.com/serbanghita/Mobile-Detect/wiki/Code-examples
  *
- * @version     2.8.11
+ * @version     2.8.19
  */
 
+class Mobile_Detect
+{
     /**
      * Mobile detection type.
      *
