@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<addon addon_id="SedoDetectBrowser" title="Browser Detection (Mobile/MSIE)" version_string="1.3.3" version_id="6" url="" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+<addon addon_id="SedoDetectBrowser" title="Browser Detection (Mobile/MSIE)" version_string="1.3.4" version_id="1030400" url="" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
   <admin_navigation/>
   <admin_permissions/>
   <admin_style_properties/>
@@ -12,13 +12,27 @@
   <cron/>
   <email_templates/>
   <email_template_modifications/>
-  <optiongroups/>
+  <optiongroups>
+    <option option_id="BrowserDetectMobileModel" edit_format="radio" data_type="integer" can_backup="1">
+      <default_value>2</default_value>
+      <edit_format_params>0=Mobile
+1=Mobile + Tablet
+2=All</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="performance" display_order="20000"/>
+    </option>
+  </optiongroups>
   <permissions>
     <permission_groups/>
     <permissions/>
     <interface_groups/>
   </permissions>
-  <phrases/>
+  <phrases>
+    <phrase title="option_BrowserDetectMobileModel" version_id="1030400" version_string="1.3.4"><![CDATA[Detailed browser fingerprinting]]></phrase>
+    <phrase title="option_BrowserDetectMobileModel_explain" version_id="1030400" version_string="1.3.4"><![CDATA[<a href="https://xenforo.com/community/resources/browser-detection-mobile-msie.1098/">Browser Detection (Mobile/MSIE)</a> can do detailed fingerprinting to determine the exact browser mobile. This however takes more time.<br/>
+<br/>
+This option allows limiting how much detection is done.]]></phrase>
+  </phrases>
   <route_prefixes/>
   <style_properties/>
   <templates/>
