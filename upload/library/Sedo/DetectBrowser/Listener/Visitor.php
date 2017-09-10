@@ -8,6 +8,7 @@ class Sedo_DetectBrowser_Listener_Visitor
         if (!isset($visitor['getBrowser']))
         {
             //Ini values to avoid 'Undefined index' errors
+            // This structure is also used to to detect which phones/tables/browsers to detect.
             $wip = array(
                 'isIE' => false,
                 'IEis' => false,
@@ -40,6 +41,8 @@ class Sedo_DetectBrowser_Listener_Visitor
                         'isINQ' => false,
                         //Version 2.8.19
                         'isWiko' => false,
+                        //Version 2.8.26
+                        'isNokiaLumia' => false,
                         //Generic
                         'isGenericPhone' => false,
                     ),
@@ -152,6 +155,11 @@ class Sedo_DetectBrowser_Listener_Visitor
                         'isWolderTablet' => false,
                         'isLeaderTablet' => false,
                         'isHudl' => false,
+                        //Version 2.8.26
+                        'isMpmanTablet' => false,
+                        'isNokiaLumiaTablet' => false,
+                        'isKocasoTablet' => false,
+                        'isHisenseTablet' => false,
                         //Generic
                         'isGenericTablet' => false
                     ),
@@ -202,7 +210,7 @@ class Sedo_DetectBrowser_Listener_Visitor
                 $useragent = strtolower($_SERVER['HTTP_USER_AGENT']);
 
                 $detectionLevel = XenForo_Application::get('options')->BrowserDetectMobileModel;
-                
+
                 //Check if mobile
                 $Mobiledetect = new Sedo_DetectBrowser_Helper_MobileDetect();
                 if ($Mobiledetect->isMobile())
@@ -211,75 +219,20 @@ class Sedo_DetectBrowser_Listener_Visitor
 
                     if ($detectionLevel >= 2)
                     {
-                        $wip['mobile']['phones'] = array(
-                            'isiPhone' => $Mobiledetect->isiPhone(),
-                            'isBlackBerry' => $Mobiledetect->isBlackBerry(),
-                            'isHTC' => $Mobiledetect->isHTC(),
-                            'isNexus' => $Mobiledetect->isNexus(),
-                            'isDellStreak' => $Mobiledetect->isDellStreak(),
-                            'isMotorola' => $Mobiledetect->isMotorola(),
-                            'isSamsung' => $Mobiledetect->isSamsung(),
-                            'isSony' => $Mobiledetect->isSony(),
-                            'isAsus' => $Mobiledetect->isAsus(),
-                            'isPalm' => $Mobiledetect->isPalm(),
-                            //Version 2.5.5
-                            'isFly' => $Mobiledetect->isFly(),
-                            //Version 2.7.9
-                            'isLG' => $Mobiledetect->isLG(),
-                            'isMicromax' => $Mobiledetect->isMicromax(),
-                            'isiMobile' => $Mobiledetect->isiMobile(),
-                            'isSimValley' => $Mobiledetect->isSimValley(),
-                            'isWolfgang' => $Mobiledetect->isWolfgang(),
-                            'isAlcatel' => $Mobiledetect->isAlcatel(),
-                            'isNintendo' => $Mobiledetect->isNintendo(),
-                            'isAmoi' => $Mobiledetect->isAmoi(),
-                            'isINQ' => $Mobiledetect->isINQ(),
-                            //Version 2.8.19
-                            'isWiko' => $Mobiledetect->isWiko(),
-                            //Generic
-                            'isGenericPhone' => $Mobiledetect->isGenericPhone()
-                        );
+                        foreach($wip['mobile']['phones'] as $key => &$value)
+                        {
+                            $value = $Mobiledetect->{$key}();
+                        }
 
-                        $wip['mobile']['os'] = array(
-                            'isAndroidOS' => $Mobiledetect->isAndroidOS(),
-                            'isBlackBerryOS' => $Mobiledetect->isBlackBerryOS(),
-                            'isPalmOS' => $Mobiledetect->isPalmOS(),
-                            'isSymbianOS' => $Mobiledetect->isSymbianOS(),
-                            'isWindowsMobileOS' => $Mobiledetect->isWindowsMobileOS(),
-                            'isiOS' => $Mobiledetect->isiOS(),
-                            'isJavaOS' => $Mobiledetect->isJavaOS(),
-                            'isNokiaOS' => $Mobiledetect->isNokiaOS(),
-                            'iswebOS' => $Mobiledetect->iswebOS(),
-                            'isbadaOS' => $Mobiledetect->isbadaOS(),
-                            'isBREWOS' => $Mobiledetect->isBREWOS()
-                        );
+                        foreach($wip['mobile']['os'] as $key => &$value)
+                        {
+                            $value = $Mobiledetect->{$key}();
+                        }
 
-                        $wip['mobile']['browser'] = array(
-                            //Doesn't work well because broswers let users select which useragent they want to use; ie: Dolfin (Dolphin)
-                            'isChrome' => $Mobiledetect->isChrome(),
-                            'isDolfin' => $Mobiledetect->isDolfin(),
-                            'isOpera' => $Mobiledetect->isOpera(),
-                            'isSkyfire' => $Mobiledetect->isSkyfire(),
-                            'isIE' => $Mobiledetect->isIE(),
-                            'isFirefox' => $Mobiledetect->isFirefox(),
-                            'isBolt' => $Mobiledetect->isBolt(),
-                            'isTeaShark' => $Mobiledetect->isTeaShark(),
-                            'isBlazer' => $Mobiledetect->isBlazer(),
-                            'isSafari' => $Mobiledetect->isSafari(),
-                            //Version 2.5.3
-                            'isMidori' => false, //had been taken back
-                            'isDiigoBrowser' => $Mobiledetect->isDiigoBrowser(),
-                            'isPuffin' => $Mobiledetect->isPuffin(),
-                            //Version 2.7.9
-                            'isMercury' => $Mobiledetect->isMercury(),
-                            //Version 2.8.11
-                            'isbaiduboxapp' => $Mobiledetect->isbaiduboxapp(),
-                            'isbaidubrowser' => $Mobiledetect->isbaidubrowser(),
-                            'isObigoBrowser' => $Mobiledetect->isObigoBrowser(),
-                            'isNetFront' => $Mobiledetect->isNetFront(),
-                            //Generic
-                            'isGenericBrowser' => $Mobiledetect->isGenericBrowser()
-                        );
+                        foreach($wip['mobile']['browser'] as $key => &$value)
+                        {
+                            $value = $Mobiledetect->{$key}();
+                        }
                     }
 
                     //TABLETS
@@ -288,124 +241,10 @@ class Sedo_DetectBrowser_Listener_Visitor
                         $wip['isTablet'] = true;
                         if ($detectionLevel >= 2)
                         {
-                            $wip['mobile']['tablets'] = array(
-                                'isBlackBerryTablet' => $Mobiledetect->isBlackBerryTablet(),
-                                'isiPad' => $Mobiledetect->isiPad(),
-                                'isKindle' => $Mobiledetect->isKindle(),
-                                'isSamsungTablet' => $Mobiledetect->isSamsungTablet(),
-                                'isHTCtablet' => $Mobiledetect->isHTCtablet(),
-                                'isMotorolaTablet' => $Mobiledetect->isMotorolaTablet(),
-                                'isAsusTablet' => $Mobiledetect->isAsusTablet(),
-                                'isNookTablet' => $Mobiledetect->isNookTablet(),
-                                'isAcerTablet' => $Mobiledetect->isAcerTablet(),
-                                'isYarvikTablet' => $Mobiledetect->isYarvikTablet(),
-
-                                //Version 2.5.3
-                                'isToshibaTablet' => $Mobiledetect->isToshibaTablet(),
-                                'isCubeTablet' => $Mobiledetect->isCubeTablet(),
-                                'isCobyTablet' => $Mobiledetect->isCobyTablet(),
-                                'isSMiTTablet' => $Mobiledetect->isSMiTTablet(),
-                                'isRockChipTablet' => $Mobiledetect->isRockChipTablet(),
-                                'isTelstraTablet' => $Mobiledetect->isTelstraTablet(),
-
-                                //Version 2.5.5
-                                'isPlaystationTablet' => $Mobiledetect->isPlaystationTablet(),
-                                'isNabiTablet' => $Mobiledetect->isNabiTablet(),
-                                'isNecTablet' => $Mobiledetect->isNecTablet(),
-                                'isHuaweiTablet' => $Mobiledetect->isHuaweiTablet(),
-                                'isbqTablet' => $Mobiledetect->isbqTablet(),
-                                'isFlyTablet' => $Mobiledetect->isFlyTablet(),
-                                'isLGTablet' => $Mobiledetect->isLGTablet(),
-
-                                //Version 2.7.9
-                                'isSurfaceTablet' => $Mobiledetect->isSurfaceTablet(),
-                                'isHPTablet' => $Mobiledetect->isHPTablet(),
-                                'isFujitsuTablet' => $Mobiledetect->isFujitsuTablet(),
-                                'isPrestigioTablet' => $Mobiledetect->isPrestigioTablet(),
-                                'isLenovoTablet' => $Mobiledetect->isLenovoTablet(),
-                                'isIntensoTablet' => $Mobiledetect->isIntensoTablet(),
-                                'isIRUTablet' => $Mobiledetect->isIRUTablet(),
-                                'isMegafonTablet' => $Mobiledetect->isMegafonTablet(),
-                                'isEbodaTablet' => $Mobiledetect->isEbodaTablet(),
-                                'isAllViewTablet' => $Mobiledetect->isAllViewTablet(),
-                                'isSonyTablet' => $Mobiledetect->isSonyTablet(),
-                                'isMIDTablet' => $Mobiledetect->isMIDTablet(),
-                                'isPantechTablet' => $Mobiledetect->isPantechTablet(),
-                                'isBronchoTablet' => $Mobiledetect->isBronchoTablet(),
-                                'isVersusTablet' => $Mobiledetect->isVersusTablet(),
-                                'isZyncTablet' => $Mobiledetect->isZyncTablet(),
-                                'isPositivoTablet' => $Mobiledetect->isPositivoTablet(),
-                                'isKoboTablet' => $Mobiledetect->isKoboTablet(),
-                                'isDanewTablet' => $Mobiledetect->isDanewTablet(),
-                                'isTexetTablet' => $Mobiledetect->isTexetTablet(),
-                                'isTrekstorTablet' => $Mobiledetect->isTrekstorTablet(),
-                                'isPyleAudioTablet' => $Mobiledetect->isPyleAudioTablet(),
-                                'isAdvanTablet' => $Mobiledetect->isAdvanTablet(),
-                                'isDanyTechTablet' => $Mobiledetect->isDanyTechTablet(),
-                                'isGalapadTablet' => $Mobiledetect->isGalapadTablet(),
-                                'isMicromaxTablet' => $Mobiledetect->isMicromaxTablet(),
-                                'isKarbonnTablet' => $Mobiledetect->isKarbonnTablet(),
-                                'isAllFineTablet' => $Mobiledetect->isAllFineTablet(),
-                                'isPROSCANTablet' => $Mobiledetect->isPROSCANTablet(),
-                                'isYONESTablet' => $Mobiledetect->isYONESTablet(),
-                                'isChangJiaTablet' => $Mobiledetect->isChangJiaTablet(),
-                                'isGUTablet' => $Mobiledetect->isGUTablet(),
-                                'isPointOfViewTablet' => $Mobiledetect->isPointOfViewTablet(),
-                                'isOvermaxTablet' => $Mobiledetect->isOvermaxTablet(),
-                                'isHCLTablet' => $Mobiledetect->isHCLTablet(),
-                                'isDPSTablet' => $Mobiledetect->isDPSTablet(),
-                                'isVistureTablet' => $Mobiledetect->isVistureTablet(),
-                                'isCrestaTablet' => $Mobiledetect->isCrestaTablet(),
-                                'isMediatekTablet' => $Mobiledetect->isMediatekTablet(),
-                                'isConcordeTablet' => $Mobiledetect->isConcordeTablet(),
-                                'isGoCleverTablet' => $Mobiledetect->isGoCleverTablet(),
-                                'isModecomTablet' => $Mobiledetect->isModecomTablet(),
-                                'isVoninoTablet' => $Mobiledetect->isVoninoTablet(),
-                                'isECSTablet' => $Mobiledetect->isECSTablet(),
-                                'isStorexTablet' => $Mobiledetect->isStorexTablet(),
-                                'isVodafoneTablet' => $Mobiledetect->isVodafoneTablet(),
-                                'isEssentielBTablet' => $Mobiledetect->isEssentielBTablet(),
-                                'isRossMoorTablet' => $Mobiledetect->isRossMoorTablet(),
-                                'isiMobileTablet' => $Mobiledetect->isiMobileTablet(),
-                                'isTolinoTablet' => $Mobiledetect->isTolinoTablet(),
-                                'isHudl' => $Mobiledetect->isHudl(),
-
-                                //Version 2.8.11
-                                'isAudioSonicTablet' => $Mobiledetect->isAudioSonicTablet(),
-                                'isAMPETablet' => $Mobiledetect->isAMPETablet(),
-                                'isSkkTablet' => $Mobiledetect->isSkkTablet(),
-                                'isTecnoTablet' => $Mobiledetect->isTecnoTablet(),
-                                'isJXDTablet' => $Mobiledetect->isJXDTablet(),
-                                'isiJoyTablet' => $Mobiledetect->isiJoyTablet(),
-                                'isFX2Tablet' => $Mobiledetect->isFX2Tablet(),
-                                'isXoroTablet' => $Mobiledetect->isXoroTablet(),
-                                'isViewsonicTablet' => $Mobiledetect->isViewsonicTablet(),
-                                'isOdysTablet' => $Mobiledetect->isOdysTablet(),
-                                'isCaptivaTablet' => $Mobiledetect->isCaptivaTablet(),
-                                'isIconbitTablet' => $Mobiledetect->isIconbitTablet(),
-                                'isTeclastTablet' => $Mobiledetect->isTeclastTablet(),
-                                'isJaytechTablet' => $Mobiledetect->isJaytechTablet(),
-                                'isBlaupunktTablet' => $Mobiledetect->isBlaupunktTablet(),
-                                'isDigmaTablet' => $Mobiledetect->isDigmaTablet(),
-                                'isEvolioTablet' => $Mobiledetect->isEvolioTablet(),
-                                'isLavaTablet' => $Mobiledetect->isLavaTablet(),
-                                'isCelkonTablet' => $Mobiledetect->isCelkonTablet(),
-                                'isMiTablet' => $Mobiledetect->isMiTablet(),
-                                'isNibiruTablet' => $Mobiledetect->isNibiruTablet(),
-                                'isNexoTablet' => $Mobiledetect->isNexoTablet(),
-                                'isUbislateTablet' => $Mobiledetect->isUbislateTablet(),
-                                'isPocketBookTablet' => $Mobiledetect->isPocketBookTablet(),
-
-                                //Version 2.8.19
-                                'isOndaTablet' => $Mobiledetect->isOndaTablet(),
-                                'isAocTablet' => $Mobiledetect->isAocTablet(),
-                                'isWolderTablet' => $Mobiledetect->isWolderTablet(),
-                                'isLeaderTablet' => $Mobiledetect->isLeaderTablet(),
-                                'isHudl' => $Mobiledetect->isHudl(),
-
-                                //Generic
-                                'isGenericTablet' => $Mobiledetect->isGenericTablet()
-                            );
+                            foreach($wip['mobile']['tablets'] as $key => &$value)
+                            {
+                                $value = $Mobiledetect->{$key}();
+                            }
                         }
                     }
                 }
@@ -420,6 +259,9 @@ class Sedo_DetectBrowser_Listener_Visitor
 
             //Insert into visitor object
             $visitor['getBrowser'] = $wip;
+print "<pre>";
+var_export($visitor['getBrowser']);
+print "</pre>";
             //Zend_Debug::dump($wip);
         }
     }
