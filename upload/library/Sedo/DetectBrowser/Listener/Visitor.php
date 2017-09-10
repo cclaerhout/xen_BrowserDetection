@@ -259,9 +259,6 @@ class Sedo_DetectBrowser_Listener_Visitor
 
             //Insert into visitor object
             $visitor['getBrowser'] = $wip;
-print "<pre>";
-var_export($visitor['getBrowser']);
-print "</pre>";
             //Zend_Debug::dump($wip);
         }
     }
